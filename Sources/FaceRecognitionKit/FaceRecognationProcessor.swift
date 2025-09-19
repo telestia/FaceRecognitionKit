@@ -18,7 +18,7 @@ enum ProcessingState {
     case error(message: String)
 }
 
-class FaceRecognationProcessor: ObservableObject {
+public class FaceRecognationProcessor: ObservableObject {
     let edgeFace: EdgeFaceWrapper
 
     init(edgeFace: EdgeFaceWrapper = EdgeFaceWrapper()) {
