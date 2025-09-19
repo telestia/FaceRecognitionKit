@@ -25,7 +25,7 @@ public class FaceRecognationProcessor: ObservableObject {
         self.edgeFace = edgeFace
     }
 
-    func processVideo(url: URL, progressHandler: ((ProcessingState) -> Void)? = nil) {
+    public func processVideo(url: URL, progressHandler: ((ProcessingState) -> Void)? = nil) {
         DispatchQueue.global(qos: .userInitiated).async {
             self._processVideoSync(url: url, progressHandler: progressHandler)
         }
