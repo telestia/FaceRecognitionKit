@@ -21,7 +21,7 @@ enum ProcessingState {
 public class FaceRecognationProcessor: ObservableObject {
     let edgeFace: EdgeFaceWrapper
 
-    init(edgeFace: EdgeFaceWrapper = EdgeFaceWrapper()) {
+    public init(edgeFace: EdgeFaceWrapper = EdgeFaceWrapper()) {
         self.edgeFace = edgeFace
     }
 
