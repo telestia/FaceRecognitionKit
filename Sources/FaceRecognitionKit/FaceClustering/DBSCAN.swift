@@ -1,7 +1,7 @@
 import Accelerate
 import Foundation
 
-class DBSCAN {
+public class DBSCAN {
     private let eps: Float
     private let minSamples: Int
     private let metric: DistanceMetric
@@ -12,25 +12,25 @@ class DBSCAN {
     private let NOISE = -1
     private let UNCLASSIFIED = -2
 
-    init(eps: Float = 0.5, minSamples: Int = 5, metric: DistanceMetric = .euclidean) {
+    public init(eps: Float = 0.5, minSamples: Int = 5, metric: DistanceMetric = .euclidean) {
         self.eps = eps
         self.minSamples = minSamples
         self.metric = metric
     }
 
     // Convenience initializer for string metric
-    convenience init(eps: Float = 0.5, minSamples: Int = 5, distanceMetric: DistanceMetric = .euclidean) {
+    public convenience init(eps: Float = 0.5, minSamples: Int = 5, distanceMetric: DistanceMetric = .euclidean) {
         self.init(eps: eps, minSamples: minSamples, metric: distanceMetric)
     }
 
     @discardableResult
-    func fit(_ X: [[Float]]) -> DBSCAN {
+    public func fit(_ X: [[Float]]) -> DBSCAN {
         let matrix = Matrix(array2D: X)
         return fit(matrix)
     }
 
     @discardableResult
-    func fit(_ X: Matrix) -> DBSCAN {
+    public func fit(_ X: Matrix) -> DBSCAN {
         self.data = X
         self.labels = Array(repeating: UNCLASSIFIED, count: X.rows)
 
@@ -113,16 +113,16 @@ class DBSCAN {
     }
 
     // Properties for sklearn compatibility
-    var labels_: [Int] {
+    public var labels_: [Int] {
         return labels
     }
 
-    var nClusters: Int {
+    public var nClusters: Int {
         let uniqueLabels = Set(labels.filter { $0 >= 0 })
         return uniqueLabels.count
     }
 
-    var nNoisePoints: Int {
+    public var nNoisePoints: Int {
         return labels.filter { $0 == NOISE }.count
     }
 }

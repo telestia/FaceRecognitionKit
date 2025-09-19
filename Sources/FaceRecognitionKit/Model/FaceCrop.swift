@@ -8,8 +8,8 @@
 import Foundation
 import Vision
 
-struct FaceCrop: Identifiable {
-    let id: UUID = UUID()  // Unique identifier for SwiftUI
+public struct FaceCrop: Identifiable {
+    public let id: UUID = UUID()  // Unique identifier for SwiftUI
     let frameIndex: Int
     let frameFaceIndex: Int  // Index of this face in the frame (0 = largest face in frame)
     let rect: CGRect

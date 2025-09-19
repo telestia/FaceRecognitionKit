@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Matrix {
+public struct Matrix {
     let data: [Float]
     let rows: Int
     let cols: Int

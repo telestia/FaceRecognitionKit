@@ -12,7 +12,7 @@ import PhotosUI
 import SwiftUI
 import Vision
 
-enum ProcessingState {
+public enum ProcessingState {
     case processing(progress: Float, stage: String)
     case completed(result: [FaceCluster])
     case error(message: String)

@@ -10,14 +10,14 @@ import CoreVideo
 import Foundation
 import Vision
 
-class EdgeFaceWrapper {
+public class EdgeFaceWrapper {
     let model: EdgeFaceXS
 
-    init() {
+    public init() {
         model = try! EdgeFaceXS()
     }
 
-    func getEmbedding(facePixelBuffer: CVPixelBuffer, normalize: Bool = false) -> [Float] {
+    public func getEmbedding(facePixelBuffer: CVPixelBuffer, normalize: Bool = false) -> [Float] {
         let input = EdgeFaceXSInput(input_image: facePixelBuffer)
         guard let prediction = try? model.prediction(input: input) else { return [] }
 

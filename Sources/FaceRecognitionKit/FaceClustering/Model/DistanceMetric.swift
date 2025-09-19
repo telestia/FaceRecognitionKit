@@ -8,7 +8,7 @@
 import Foundation
 import Accelerate
 
-enum DistanceMetric {
+public enum DistanceMetric {
     case euclidean
     case cosine
     case manhattan
