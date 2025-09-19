@@ -8,7 +8,7 @@
 import Foundation
 
 public class FaceCluster: Identifiable {
-    let id: Int
+    public let id: Int
     private var _faces: [FaceCrop] = []
     private var _thumbnailFace: FaceCrop!
 
