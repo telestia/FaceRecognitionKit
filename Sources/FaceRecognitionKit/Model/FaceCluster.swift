@@ -12,22 +12,22 @@ public class FaceCluster: Identifiable {
     private var _faces: [FaceCrop] = []
     private var _thumbnailFace: FaceCrop!
 
-    var faces: [FaceCrop] {
+    public var faces: [FaceCrop] {
         return _faces
     }
 
-    var thumbnailFace: FaceCrop {
+    public var thumbnailFace: FaceCrop {
         return _thumbnailFace
     }
 
-    init(id: Int, faces: [FaceCrop] = []) {
+    public init(id: Int, faces: [FaceCrop] = []) {
         self.id = id
         for face in faces {
             add(face: face)
         }
     }
 
-    func add(face: FaceCrop) {
+    public func add(face: FaceCrop) {
         _faces.append(face)
         updateRankingsAndThumbnail()
     }
@@ -48,7 +48,7 @@ public class FaceCluster: Identifiable {
 
     }
 
-    func getAverageEmbedding() -> [Float] {
+    public func getAverageEmbedding() -> [Float] {
         guard !_faces.isEmpty else { return [] }
 
         let embeddingSize = _faces[0].embedding.count
@@ -68,7 +68,7 @@ public class FaceCluster: Identifiable {
         return averageEmbedding
     }
 
-    func getClusterQuality() -> Float {
+    public func getClusterQuality() -> Float {
         guard !_faces.isEmpty else { return 0.0 }
         return _faces.map { $0.qualityScore }.reduce(0, +) / Float(_faces.count)
     }

@@ -10,16 +10,16 @@ import Vision
 
 public struct FaceCrop: Identifiable {
     public let id: UUID = UUID()  // Unique identifier for SwiftUI
-    let frameIndex: Int
-    let frameFaceIndex: Int  // Index of this face in the frame (0 = largest face in frame)
-    let rect: CGRect
-    let pixelBuffer: CVPixelBuffer
-    let embedding: [Float]
-    let confidence: Float  // Face detection confidence
-    var clusterRank: Int = -1  // Rank within cluster (0 = best, largest face)
-    var qualityScore: Float = 0.0  // Overall quality score for this face
+    public let frameIndex: Int
+    public let frameFaceIndex: Int  // Index of this face in the frame (0 = largest face in frame)
+    public let rect: CGRect
+    public let pixelBuffer: CVPixelBuffer
+    public let embedding: [Float]
+    public let confidence: Float  // Face detection confidence
+    public var clusterRank: Int = -1  // Rank within cluster (0 = best, largest face)
+    public var qualityScore: Float = 0.0  // Overall quality score for this face
 
-    init(frameIndex: Int, frameFaceIndex: Int, rect: CGRect, pixelBuffer: CVPixelBuffer, embedding: [Float], confidence: Float) {
+    public init(frameIndex: Int, frameFaceIndex: Int, rect: CGRect, pixelBuffer: CVPixelBuffer, embedding: [Float], confidence: Float) {
         self.frameIndex = frameIndex
         self.frameFaceIndex = frameFaceIndex
         self.rect = rect
