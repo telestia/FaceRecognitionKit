@@ -14,7 +14,9 @@ public class EdgeFaceWrapper {
     let model: EdgeFaceXS
 
     public init() {
-        model = try! EdgeFaceXS()
+        let config = MLModelConfiguration()
+        config.computeUnits = .cpuAndGPU
+        model = try! EdgeFaceXS(configuration: config)
     }
 
     public func getEmbedding(facePixelBuffer: CVPixelBuffer, normalize: Bool = false) -> [Float] {
@@ -36,5 +38,4 @@ public class EdgeFaceWrapper {
 
         return floatEmbedding
     }
-
 }

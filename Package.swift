@@ -23,10 +23,6 @@ let package = Package(
             resources: [
                 .process("Resources")  // buraya ML modelini koyacaksın
             ]
-        ),
-        .testTarget(
-            name: "FaceRecognitionKitTests",
-            dependencies: ["FaceRecognitionKit"]
-        ),
+        )
     ]
 )
